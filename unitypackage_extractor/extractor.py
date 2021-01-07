@@ -19,8 +19,7 @@ def extractPackage(packagePath, outputPath=""):
     # Extract each file in tmpDir to final destination
     for dirEntry in os.scandir(tmpDir):
       assetEntryDir = f"{tmpDir}/{dirEntry.name}"
-      if not os.path.exists(f"{assetEntryDir}/pathname") or \
-          not os.path.exists(f"{assetEntryDir}/asset"):
+      if not os.path.exists(f"{assetEntryDir}/pathname")
         continue #Doesn't have the required files to extract it
 
       # Has the required info to extract
@@ -33,7 +32,8 @@ def extractPackage(packagePath, outputPath=""):
       print(f"Extracting '{dirEntry.name}' as '{pathname}'")
       assetOutPath = os.path.join(outputPath, pathname)
       os.makedirs(os.path.dirname(assetOutPath), exist_ok=True) #Make the dirs up to the given folder
-      shutil.move(f"{assetEntryDir}/asset", assetOutPath)
+      if os.path.exists(f"{assetEntryDir}/asset"):
+        shutil.move(f"{assetEntryDir}/asset", assetOutPath)
 
       if not os.path.exists(f"{assetEntryDir}/asset.meta"):
         continue
