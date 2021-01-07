@@ -19,7 +19,7 @@ def extractPackage(packagePath, outputPath=""):
     # Extract each file in tmpDir to final destination
     for dirEntry in os.scandir(tmpDir):
       assetEntryDir = f"{tmpDir}/{dirEntry.name}"
-      if not os.path.exists(f"{assetEntryDir}/pathname")
+      if not os.path.exists(f"{assetEntryDir}/pathname"):
         continue #Doesn't have the required files to extract it
 
       # Has the required info to extract
