@@ -35,6 +35,15 @@ def extractPackage(packagePath, outputPath=""):
       os.makedirs(os.path.dirname(assetOutPath), exist_ok=True) #Make the dirs up to the given folder
       shutil.move(f"{assetEntryDir}/asset", assetOutPath)
 
+      if not os.path.exists(f"{assetEntryDir}/asset.meta"):
+        continue
+
+      #Extract to the pathname .meta
+      print(f"Extracting '{dirEntry.name}' as '{pathname}.meta'")
+      assetOutPathMeta = os.path.join(outputPath, pathname) + ".meta"
+      os.makedirs(os.path.dirname(assetOutPath), exist_ok=True) #Make the dirs up to the given folder
+      shutil.move(f"{assetEntryDir}/asset.meta", assetOutPathMeta)            
+
 def cli(args):
   if not args:
     raise TypeError("No .unitypackage path was given. \n\nUSAGE: unitypackage_extractor [XXX.unitypackage]")
