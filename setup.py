@@ -2,11 +2,11 @@ from setuptools import setup
 
 setup(
     name='unitypackage_extractor',
-    version='1.1.0',
+    version='1.1.1',
     description='Extractor for .unitypackage files',
     long_description=open('README.md', 'r').read(),
     long_description_content_type="text/markdown",
-    url='https://github.com/snorrsi/unitypackage_extractor.git#dev_1_0_1',
+    url='https://github.com/snorrsi/unitypackage_extractor.git#dev_1_1_1',
     author='Cobertos',
     author_email='me@cobertos.com',
     license='MIT',
